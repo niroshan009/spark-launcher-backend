@@ -1,3 +1,4 @@
+
 # What is this project
 This is a project contains an API to submit a spark job utilizing spark-launcher provided by [apache-spark](https://spark.apache.org/docs/latest/api/java/org/apache/spark/launcher/SparkLauncher.html).
 
@@ -33,15 +34,35 @@ This project has an endpoint called ```localhost:8080/spark/start```
 
 ### example 
 ```json
-{
-  "sparkHome": "/Users/kd/Development_tools/spark-3.4.0-bin-hadoop3",
-  "appResource": "/Users/kd/git/spark/spark-test/spark-job/target/spark-job-1.0-SNAPSHOT.jar",
-  "mainClass": "com.kd.main.ReadToDataset",
-  "master": "local[*]",
-  "args": [
-    "/Users/kd/git/spark/spark-test/spark-job/inventory.csv"
-  ]
-}
+//{
+//  "sparkHome": "/Users/kd/Development_tools/spark-3.4.0-bin-hadoop3",
+//  "appResource": "/Users/kd/git/spark/spark-test/spark-job/target/spark-job-1.0-SNAPSHOT.jar",
+//  "mainClass": "com.kd.main.ReadToDataset",
+//  "master": "local[*]",
+//  "args": [
+//    "/Users/kd/git/spark/spark-test/spark-job/inventory.csv"
+//  ]
+//}
 ```
 
-This is a just a concept to how to trigger a spark job from an endpoint. You can tweak the above application to utilise the `application.properties` file to configure your jar file location, spark home  
+This is a just a concept to how to trigger a spark job from an endpoint. You can tweak the above application to utilise the `application.properties` file to configure your jar file location, spark home
+
+### Build Docker Image
+```dockerfile
+docker build -t spark-launcher-backend .
+```
+
+### Run docker image
+```dockerfile
+docker run --rm spark-launcher-backend
+```
+
+### Tag docker image
+```dockerfile
+docker tag spark-launcher-backend niroshan009/spark-launcher-backend
+```
+
+### docker push
+```dockerfile
+docker push niroshan009/spark-launcher-backend
+```
