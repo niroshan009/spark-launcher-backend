@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Map;
 
 @Data
 @ToString
@@ -30,11 +31,17 @@ public class SparkConfigDTO {
 
     private String s3Endpoint;
 
-    private String driverBindAddress;
+    private String kubeFileUploadPath;
+
+    private String serviceAccount;
+
+//    private String driverBindAddress;
 
     private String driverPort;
 
     private String driverHost;
+
+    private String sslEnabled;
 
     private String dockerImage;
     private List<String> args;

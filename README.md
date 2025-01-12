@@ -49,7 +49,7 @@ This is a just a concept to how to trigger a spark job from an endpoint. You can
 
 ### Build Docker Image
 ```dockerfile
-docker build -t spark-launcher-backend .
+docker build -t spark-launcher-backend . --load
 ```
 
 ### Run docker image
